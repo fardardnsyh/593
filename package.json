@@ -1,0 +1,23 @@
+{
+  "name": "soccer-scores-app",
+  "version": "1.0.0",
+  "repository": "git@github.com:tiagoornelas/soccer-scores-app.git",
+  "author": "tiagoornelas <advtiagoornelas@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "lint": "yarn lint:web & yarn lint:api",
+    "lint:web": "yarn workspace @soccer-scores-app/web lint",
+    "lint:api": "yarn workspace @soccer-scores-app/api lint",
+    "build": "yarn workspace @soccer-scores-app/web build",
+    "start": "concurrently \"yarn workspace @soccer-scores-app/api start\" \"yarn workspace @soccer-scores-app/web start\""
+  },
+  "devDependencies": {
+    "concurrently": "^7.5.0"
+  }
+}
